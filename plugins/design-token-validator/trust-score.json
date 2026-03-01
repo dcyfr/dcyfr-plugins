@@ -1,0 +1,1 @@
+{ "plugin_id": "dcyfr/design-token-validator", "overall": 88, "dimensions": { "security": 85, "community": 90, "maintenance": 89, "transparency": 88 }, "recommendation": "approve", "rationale": "DCYFR design token enforcement with configurable compliance thresholds", "last_audited": "2026-02-28", "auditor": "dcyfr-security-team" }

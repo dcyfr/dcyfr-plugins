@@ -1,0 +1,1 @@
+{ "plugin_id": "dcyfr/license-compliance", "overall": 92, "dimensions": { "security": 90, "community": 93, "maintenance": 93, "transparency": 94 }, "recommendation": "approve", "rationale": "Reliable SPDX license checker", "last_audited": "2026-02-28", "auditor": "dcyfr-security-team" }

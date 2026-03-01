@@ -1,0 +1,13 @@
+{
+  "plugin_id": "dcyfr/license-compliance",
+  "name": "license-compliance",
+  "version": "1.1.0",
+  "description": "Validates SPDX license compatibility across all project dependencies",
+  "author": "dcyfr",
+  "license": "MIT",
+  "capabilities": ["compliance", "license_validation"],
+  "permissions": { "read": ["package_lock", "node_modules"], "write": [], "network": false, "filesystem": "read-only" },
+  "entrypoint": "src/index.ts",
+  "minFrameworkVersion": "2.0.0",
+  "keywords": ["license", "spdx", "compliance"]
+}

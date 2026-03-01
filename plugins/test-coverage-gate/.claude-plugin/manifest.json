@@ -1,0 +1,13 @@
+{
+  "plugin_id": "dcyfr/test-coverage-gate",
+  "name": "test-coverage-gate",
+  "version": "1.1.0",
+  "description": "Enforces configurable test coverage thresholds",
+  "author": "dcyfr",
+  "license": "MIT",
+  "capabilities": ["testing", "coverage_enforcement"],
+  "permissions": { "read": ["coverage_reports", "project_files"], "write": [], "network": false, "filesystem": "read-only" },
+  "entrypoint": "src/index.ts",
+  "minFrameworkVersion": "2.0.0",
+  "keywords": ["coverage", "vitest", "jest", "quality-gate"]
+}

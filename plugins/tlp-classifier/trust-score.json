@@ -1,0 +1,1 @@
+{ "plugin_id": "dcyfr/tlp-classifier", "overall": 93, "dimensions": { "security": 94, "community": 91, "maintenance": 93, "transparency": 95 }, "recommendation": "approve", "rationale": "DCYFR canonical TLP enforcement aligned with FIRST.org TLP 2.0", "last_audited": "2026-02-28", "auditor": "dcyfr-security-team" }

@@ -1,0 +1,1 @@
+{ "plugin_id": "dcyfr/api-schema-validator", "overall": 89, "dimensions": { "security": 88, "community": 90, "maintenance": 89, "transparency": 90 }, "recommendation": "approve", "rationale": "OpenAPI 3.1 and JSON Schema Draft-07 with AJV", "last_audited": "2026-02-28", "auditor": "dcyfr-security-team" }

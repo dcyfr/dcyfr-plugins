@@ -1,0 +1,1 @@
+{ "bomFormat": "CycloneDX", "specVersion": "1.4", "version": 1, "metadata": { "timestamp": "2026-02-28T00:00:00Z", "component": { "type": "library", "name": "license-compliance", "version": "1.1.0" } }, "components": [ { "type": "library", "name": "@dcyfr/ai", "version": "2.1.0", "licenses": [{ "license": { "id": "MIT" } }] } ] }

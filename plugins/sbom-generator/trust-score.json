@@ -1,0 +1,1 @@
+{ "plugin_id": "dcyfr/sbom-generator", "overall": 90, "dimensions": { "security": 92, "community": 88, "maintenance": 90, "transparency": 91 }, "recommendation": "approve", "rationale": "CycloneDX-compliant SBOM generation with Syft fallback", "last_audited": "2026-02-28", "auditor": "dcyfr-security-team" }

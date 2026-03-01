@@ -1,0 +1,13 @@
+{
+  "plugin_id": "dcyfr/sbom-generator",
+  "name": "sbom-generator",
+  "version": "1.0.0",
+  "description": "Generates CycloneDX Software Bill of Materials for any npm project",
+  "author": "dcyfr",
+  "license": "MIT",
+  "capabilities": ["sbom", "dependency_analysis"],
+  "permissions": { "read": ["package_lock", "node_modules"], "write": ["sbom_output"], "network": false, "filesystem": "read-write" },
+  "entrypoint": "src/index.ts",
+  "minFrameworkVersion": "2.0.0",
+  "keywords": ["sbom", "cyclonedx", "supply-chain"]
+}

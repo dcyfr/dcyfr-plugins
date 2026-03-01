@@ -1,0 +1,13 @@
+{
+  "plugin_id": "dcyfr/accessibility-checker",
+  "name": "accessibility-checker",
+  "version": "1.0.0",
+  "description": "WCAG 2.2 Level AA accessibility validation for React components",
+  "author": "dcyfr",
+  "license": "MIT",
+  "capabilities": ["accessibility", "wcag_validation"],
+  "permissions": { "read": ["project_files", "build_output"], "write": [], "network": false, "filesystem": "read-only" },
+  "entrypoint": "src/index.ts",
+  "minFrameworkVersion": "2.0.0",
+  "keywords": ["accessibility", "wcag", "a11y", "aria"]
+}

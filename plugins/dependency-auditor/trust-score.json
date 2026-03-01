@@ -1,0 +1,1 @@
+{ "plugin_id": "dcyfr/dependency-auditor", "overall": 94, "dimensions": { "security": 96, "community": 92, "maintenance": 94, "transparency": 93 }, "recommendation": "approve", "rationale": "npm audit wrapper with structured output", "last_audited": "2026-02-28", "auditor": "dcyfr-security-team" }

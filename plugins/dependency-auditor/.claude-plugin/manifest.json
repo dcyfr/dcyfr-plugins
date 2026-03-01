@@ -1,0 +1,13 @@
+{
+  "plugin_id": "dcyfr/dependency-auditor",
+  "name": "dependency-auditor",
+  "version": "1.3.0",
+  "description": "Audits npm dependencies for known vulnerabilities and outdated packages",
+  "author": "dcyfr",
+  "license": "MIT",
+  "capabilities": ["security", "dependency_audit"],
+  "permissions": { "read": ["package_lock", "node_modules"], "write": [], "network": true, "filesystem": "read-only" },
+  "entrypoint": "src/index.ts",
+  "minFrameworkVersion": "2.0.0",
+  "keywords": ["npm-audit", "dependencies", "security"]
+}

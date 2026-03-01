@@ -1,0 +1,13 @@
+{
+  "plugin_id": "dcyfr/secret-detector",
+  "name": "secret-detector",
+  "version": "1.2.0",
+  "description": "Detects hardcoded secrets, API keys, and credentials",
+  "author": "dcyfr",
+  "license": "MIT",
+  "capabilities": ["security", "secret_scanning"],
+  "permissions": { "read": ["project_files"], "write": [], "network": false, "filesystem": "read-only" },
+  "entrypoint": "src/index.ts",
+  "minFrameworkVersion": "2.0.0",
+  "keywords": ["security", "secrets", "credentials"]
+}

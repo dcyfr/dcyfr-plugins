@@ -1,0 +1,1 @@
+{ "plugin_id": "dcyfr/secret-detector", "overall": 98, "dimensions": { "security": 99, "community": 97, "maintenance": 98, "transparency": 98 }, "recommendation": "approve", "rationale": "Core DCYFR security tool with comprehensive test coverage", "last_audited": "2026-02-28", "auditor": "dcyfr-security-team" }

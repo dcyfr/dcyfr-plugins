@@ -1,0 +1,1 @@
+{ "plugin_id": "dcyfr/test-coverage-gate", "overall": 91, "dimensions": { "security": 89, "community": 92, "maintenance": 92, "transparency": 91 }, "recommendation": "approve", "rationale": "Coverage enforcement compatible with Vitest and Jest", "last_audited": "2026-02-28", "auditor": "dcyfr-security-team" }

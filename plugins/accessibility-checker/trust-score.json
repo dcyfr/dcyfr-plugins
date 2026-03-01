@@ -1,0 +1,1 @@
+{ "plugin_id": "dcyfr/accessibility-checker", "overall": 87, "dimensions": { "security": 84, "community": 89, "maintenance": 87, "transparency": 88 }, "recommendation": "approve", "rationale": "WCAG 2.2 AA with axe-core integration", "last_audited": "2026-02-28", "auditor": "dcyfr-security-team" }

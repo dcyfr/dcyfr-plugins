@@ -1,0 +1,13 @@
+{
+  "plugin_id": "dcyfr/api-schema-validator",
+  "name": "api-schema-validator",
+  "version": "1.2.0",
+  "description": "Validates API requests/responses against OpenAPI 3.1 and JSON Schema",
+  "author": "dcyfr",
+  "license": "MIT",
+  "capabilities": ["api_quality", "schema_validation"],
+  "permissions": { "read": ["project_files", "openapi_spec"], "write": [], "network": false, "filesystem": "read-only" },
+  "entrypoint": "src/index.ts",
+  "minFrameworkVersion": "2.0.0",
+  "keywords": ["openapi", "json-schema", "api", "ajv"]
+}

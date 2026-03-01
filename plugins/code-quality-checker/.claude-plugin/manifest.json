@@ -1,0 +1,13 @@
+{
+  "plugin_id": "dcyfr/code-quality-checker",
+  "name": "code-quality-checker",
+  "version": "1.0.0",
+  "description": "ESLint and TypeScript validation gate for AI-generated code",
+  "author": "dcyfr",
+  "license": "MIT",
+  "capabilities": ["code_quality", "linting"],
+  "permissions": { "read": ["project_files", "tsconfig"], "write": [], "network": false, "filesystem": "read-only" },
+  "entrypoint": "src/index.ts",
+  "minFrameworkVersion": "2.0.0",
+  "keywords": ["eslint", "typescript", "linting"]
+}

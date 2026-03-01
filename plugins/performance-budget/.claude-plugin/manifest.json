@@ -1,0 +1,13 @@
+{
+  "plugin_id": "dcyfr/performance-budget",
+  "name": "performance-budget",
+  "version": "1.0.0",
+  "description": "Enforces Core Web Vitals (LCP, FID, CLS) performance budgets in Next.js",
+  "author": "dcyfr",
+  "license": "MIT",
+  "capabilities": ["performance", "web_vitals"],
+  "permissions": { "read": ["build_output", "next_config"], "write": [], "network": false, "filesystem": "read-only" },
+  "entrypoint": "src/index.ts",
+  "minFrameworkVersion": "2.0.0",
+  "keywords": ["performance", "core-web-vitals", "nextjs"]
+}

@@ -1,0 +1,1 @@
+{ "plugin_id": "dcyfr/code-quality-checker", "overall": 95, "dimensions": { "security": 96, "community": 94, "maintenance": 95, "transparency": 95 }, "recommendation": "approve", "rationale": "ESLint/TypeScript quality gate with high community adoption", "last_audited": "2026-02-28", "auditor": "dcyfr-security-team" }

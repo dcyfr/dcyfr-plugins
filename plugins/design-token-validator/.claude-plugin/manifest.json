@@ -1,0 +1,13 @@
+{
+  "plugin_id": "dcyfr/design-token-validator",
+  "name": "design-token-validator",
+  "version": "1.0.0",
+  "description": "Enforces DCYFR design token usage in React/Next.js (>=95% compliance)",
+  "author": "dcyfr",
+  "license": "MIT",
+  "capabilities": ["ui_quality", "design_tokens"],
+  "permissions": { "read": ["project_files"], "write": [], "network": false, "filesystem": "read-only" },
+  "entrypoint": "src/index.ts",
+  "minFrameworkVersion": "2.0.0",
+  "keywords": ["design-tokens", "tailwind", "nextjs"]
+}

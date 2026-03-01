@@ -1,0 +1,1 @@
+{ "plugin_id": "dcyfr/performance-budget", "overall": 85, "dimensions": { "security": 82, "community": 86, "maintenance": 86, "transparency": 87 }, "recommendation": "approve", "rationale": "Next.js Core Web Vitals enforcement with configurable budgets", "last_audited": "2026-02-28", "auditor": "dcyfr-security-team" }

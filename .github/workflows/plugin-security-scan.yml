@@ -1,0 +1,119 @@
+# TLP:CLEAR
+# Plugin Security Scan Workflow
+name: Plugin Security Scan
+
+on:
+  pull_request:
+    paths: ['plugins/**']
+    types: [opened, synchronize, reopened]
+  push:
+    branches: [main]
+    paths: ['plugins/**', 'marketplace.json']
+
+permissions: {}
+
+jobs:
+  scan-plugins:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pull-requests: write
+      security-events: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate manifest schemas
+        run: |
+          for dir in plugins/*/; do
+            manifest="$dir.claude-plugin/manifest.json"
+            if [ -f "$manifest" ]; then
+              node -e "
+                const m = require('./$manifest');
+                const req = ['plugin_id','name','version','description','author','license','capabilities','permissions'];
+                const missing = req.filter(k => !m[k]);
+                if (missing.length) { console.error('Missing:', missing); process.exit(1); }
+                console.log('OK', m.plugin_id);
+              "
+            fi
+          done
+
+      - name: License validation
+        run: |
+          ALLOWED="MIT Apache-2.0 BSD-2-Clause BSD-3-Clause ISC 0BSD"
+          for dir in plugins/*/; do
+            manifest="$dir.claude-plugin/manifest.json"
+            if [ -f "$manifest" ]; then
+              LIC=$(node -e "const m=require('./$manifest'); console.log(m.license)")
+              if echo "$ALLOWED" | grep -qw "$LIC"; then
+                echo "OK $dir: $LIC"
+              else
+                echo "FAIL $dir: $LIC not approved"; exit 1
+              fi
+            fi
+          done
+
+      - name: SBOM presence check
+        run: |
+          for dir in plugins/*/; do
+            if [ -f "$dir.claude-plugin/manifest.json" ] && [ ! -f "${dir}sbom.json" ]; then
+              echo "MISSING sbom.json in $dir"; exit 1
+            fi
+          done
+          echo "All SBOMs present"
+
+      - name: Trust score validation
+        run: |
+          for dir in plugins/*/; do
+            ts="${dir}trust-score.json"
+            if [ -f "$ts" ]; then
+              SCORE=$(node -e "const t=require('./$ts'); console.log(t.overall)")
+              if [ "$SCORE" -lt 70 ]; then
+                echo "FAIL $dir: score $SCORE below minimum 70"; exit 1
+              fi
+              echo "OK $dir: $SCORE"
+            fi
+          done
+
+      - name: Post scan summary
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const ok = '${{ job.status }}' === 'success';
+            await github.rest.issues.createComment({
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `## ${ok ? '✅' : '❌'} Plugin Security Scan: ${{ job.status }}\n\n[View run](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})`
+            });
+
+  validate-marketplace:
+    name: Validate marketplace.json
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Validate
+        run: |
+          node -e "
+            const m = require('./marketplace.json');
+            const issues = m.plugins.flatMap(p => {
+              const missing = [];
+              if (!p.plugin_id) missing.push('plugin_id');
+              if (!p.trust_score) missing.push('trust_score');
+              if (!p.capabilities?.length) missing.push('capabilities');
+              return missing.map(f => p.name + ': missing ' + f);
+            });
+            if (issues.length) { console.error(issues); process.exit(1); }
+            console.log('OK -', m.plugins.length, 'plugins valid');
+          "
