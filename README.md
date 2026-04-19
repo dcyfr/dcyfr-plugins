@@ -49,6 +49,54 @@ await loader.loadFromMarketplace('dcyfr/dcyfr-plugins', 'secret-detector');
 
 ---
 
+## 🏗️ Plugin Structure
+
+Every plugin in this registry follows a standard layout:
+
+```
+plugins/<name>/
+  .claude-plugin/
+    manifest.json       # name, version, capabilities, permissions, dcyfr compat range
+  sbom.json             # CycloneDX SBOM — all runtime dependencies declared
+  trust-score.json      # verified trust metrics (automated, do not edit manually)
+  index.ts              # plugin entry point
+  package.json
+  README.md
+  LICENSE
+```
+
+### Trust Score Breakdown
+
+Scores are computed by the CI pipeline on every PR and re-verified on each release:
+
+| Factor | Weight | Pass threshold |
+|--------|--------|----------------|
+| Security scan (secrets, vulns, malware) | 30% | 0 findings |
+| Valid SPDX license | 20% | OSI-approved |
+| SBOM completeness | 15% | 100% declared deps |
+| Manifest validity | 15% | All required fields |
+| Code quality (no `eval`/`exec`) | 10% | No violations |
+| Author reputation | 10% | GitHub account ≥ 90 days |
+
+**Minimum score for inclusion: 85.** Plugins scoring < 85 are rejected and the PR is closed automatically.
+
+### Capabilities Reference
+
+| Capability | What it signals |
+|------------|----------------|
+| `code_quality` | Analyses source code, suggests improvements |
+| `security` | Detects vulnerabilities, secrets, or policy violations |
+| `testing` | Enforces test coverage thresholds |
+| `compliance` | License, TLP, or regulatory checks |
+| `performance` | Web Vitals, bundle size, or runtime benchmarks |
+| `accessibility` | WCAG 2.1 AA checks |
+| `api_quality` | Schema validation, breaking-change detection |
+| `ui_quality` | Design token compliance, visual regression |
+| `sbom` | Generates or validates Software Bills of Materials |
+| `dependency_analysis` | Audits transitive dependency trees |
+
+---
+
 ## 📋 Submission Guidelines
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for how to submit your plugin. All submissions require a valid `manifest.json`, passing security scan, and SPDX-compatible license.
