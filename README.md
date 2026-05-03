@@ -3,7 +3,7 @@
 
 **Official DCYFR Plugin Marketplace** — curated, security-scanned plugins for the [`@dcyfr/ai`](https://www.npmjs.com/package/@dcyfr/ai) framework.
 
-[![Security Scan](https://github.com/dcyfr/dcyfr-plugins/actions/workflows/plugin-security-scan.yml/badge.svg)](https://github.com/dcyfr/dcyfr-plugins/actions/workflows/plugin-security-scan.yml)
+[![Security Scan](https://github.com/dcyfr-labs/dcyfr-plugins/actions/workflows/plugin-security-scan.yml/badge.svg)](https://github.com/dcyfr-labs/dcyfr-plugins/actions/workflows/plugin-security-scan.yml)
 
 ---
 
